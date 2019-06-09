@@ -17,7 +17,6 @@ from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
     PM_AUTO_BAN,
-    BRAIN_CHECKER,
     LASTMSG,
     LOGS,
     is_mongo_alive,
@@ -39,8 +38,6 @@ async def permitpm(event):
     """ Permits people from PMing you without approval. \
         Will block retarded nibbas automatically. """
     if PM_AUTO_BAN:
-        if event.sender_id in BRAIN_CHECKER:
-            return
         if event.is_private and not (await event.get_sender()).bot:
             if not is_mongo_alive() or not is_redis_alive():
                 return
